@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+sed -i 's/nom_utilisateur/wordpress/' test
+sed -i 's/mot_de_passe/secret/' test
+
