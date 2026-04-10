@@ -1,0 +1,16 @@
+---
+lamp_packages:
+  - httpd
+  - mariadb-server
+  - php
+  - php-mysqlnd
+
+#apache_service: httpd
+apache:
+  service: httpd
+  user: apache
+  group: apache
+
+mariadb:
+  pythonlib: python3-PyMySQL
+  socket: /var/lib/mysql/mysql/sock

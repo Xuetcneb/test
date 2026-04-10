@@ -1,0 +1,19 @@
+---
+- name: install dépendances python
+  package:
+    name: '{{ mariadb.pythonlib }}'
+    state: present
+
+- name: Créer une base de données test
+  community.mysql.mysql_db:
+    name: '{{ mariadb_user.name }}'
+    state: present
+    login_unix_socket: '{{ mariadb.socket }}'
+
+- name: Créer un utilisateur test
+  community.mysql.mysql_user:
+    name: '{{ mariadb_user.name }}'
+    password: '{{ mariadb_user.pass }}'
+    priv: '{{ mariadb_user.name }}.*:ALL'
+    state: present
+    login_unix_socket: '{{ mariadb.socket }}'

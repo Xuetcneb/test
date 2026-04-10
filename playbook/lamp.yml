@@ -1,24 +1,4 @@
 ---
 - hosts: webservers
-  tasks:
-    - name: "installation lamp debian"
-      package:
-        name: '{{ item }}'
-        state: present
-      loop:
-        - apache2
-        - mariadb-server
-        - php
-        - php-mysql
-      when: ansible_os_family == 'Debian'
-    
-    - name: "installation lamp redhat"
-      package:
-        name: '{{ item }}'
-        state: present
-      loop:
-        - httpd
-        - mariadb-server
-        - php
-        - php-mysqlnd
-      when: ansible_os_family == 'RedHat'
+  roles:
+    - lamp

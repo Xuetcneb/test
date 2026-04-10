@@ -1,0 +1,38 @@
+---
+- hosts: webservers
+  vars:
+    debian_lamp_packages:
+        - apache2
+        - mariadb-server
+        - php
+        - php-mysql
+    redhat_lamp_packages:
+        - httpd
+        - mariadb-server
+        - php
+        - php-mysqlnd
+
+  tasks:
+    - name: installation lamp debian
+      package:
+        name: '{{ item }}'
+        state: present
+      loop: '{{ debian_lamp_packages }}'
+      when: ansible_os_family == 'Debian'
+
+    - name: installation lamp redhat
+      package:
+        name: '{{ item }}'
+        state: present
+      loop: '{{ redhat_lamp_packages }}'
+      when: ansible_os_family == 'RedHat'
+
+    - name: démarrage des services redhat
+      service:
+        state: started
+        name: '{{ item }}'
+        enabled: true
+      loop:
+        - httpd
+        - mariadb
+      when: ansible_os_family == 'RedHat'

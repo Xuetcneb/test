@@ -1,0 +1,13 @@
+#SPDX-License-Identifier: MIT-0
+---
+# vars file for lamp
+debian_lamp_packages:
+  - apache2
+  - mariadb-server
+  - php
+  - php-mysql
+redhat_lamp_packages:
+  - httpd
+  - mariadb-server
+  - php
+  - php-mysqlnd

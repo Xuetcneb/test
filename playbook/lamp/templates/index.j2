@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ ansible_distribution }} Apache Web Server</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>{{ ansible_distribution }}</h1>
+		<h2>Site en construction</h2>
+		{% if lamp_packages is defined %}
+		<h3>Packages:</h3>
+		<ul>
+			{% for item in lamp_packages %}
+			<li>{{ item }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		<p>Généré par {{ ansible_distribution }} {{ ansible_distribution_version }}</p>		
+	</body>
+</html>
+

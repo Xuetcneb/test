@@ -1,0 +1,7 @@
+#SPDX-License-Identifier: MIT-0
+---
+# handlers file for lamp
+- name: restarting_apache
+  service:
+    name: '{{ apache_service }}'
+    state: restarted
