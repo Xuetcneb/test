@@ -1,0 +1,12 @@
+---
+- hosts: all
+  #gather_facts: no
+  tasks:
+    - name: uptime des machines
+      command: uptime
+      register: uptime_result
+      
+    - name: debug
+      debug: 
+        #var: uptime_result.stdout
+        msg: "uptime de {{ ansible_hostname }} : {{ uptime_result.stdout }}"

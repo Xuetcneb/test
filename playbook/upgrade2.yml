@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: upgrade linux
+      package: 
+        name: '*'
+        state: latest
+        

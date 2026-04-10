@@ -1,0 +1,7 @@
+---
+- hosts: '{{ host }}'
+  tasls:
+    - name: "uninstall package"
+      package:
+        name: '{{ package }}'
+        state: absent
